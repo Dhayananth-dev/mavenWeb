@@ -25,7 +25,7 @@ pipeline{
         stage("Run"){
             steps{
                 sh '''
-               /opt/tomcat/bin/startup.sh
+               sudo -u jenkins /opt/tomcat/bin/startup.sh
                 '''
             }
         }
