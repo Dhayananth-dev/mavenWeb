@@ -13,13 +13,9 @@ pipeline{
         }
         stage("Copy"){
             steps{
-            steps {
                 sh '''
-                /opt/tomcat/bin/shutdown.sh || true
-                rm -rf /opt/tomcat/webapps/cat
-                rm -f /opt/tomcat/webapps/cat.war
+                cp target/*.war  /opt/tomcat/webapps
                 '''
-            }
             }
         }
         stage("Run"){
