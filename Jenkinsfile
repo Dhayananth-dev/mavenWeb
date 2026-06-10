@@ -13,9 +13,15 @@ pipeline{
         }
         stage("Copy"){
             steps{
+                 stage('Deploy') {
+            steps {
                 sh '''
-                cp target/*.war  /opt/tomcat/webapps
+                /opt/tomcat/bin/shutdown.sh || true
+                sleep 5
+                rm -rf /opt/tomcat/webapps/cat
+                rm -f /opt/tomcat/webapps/cat.war
                 '''
+            }
             }
         }
         stage("Run"){
