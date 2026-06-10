@@ -13,7 +13,6 @@ pipeline{
         }
         stage("Copy"){
             steps{
-                 stage('Deploy') {
             steps {
                 sh '''
                 /opt/tomcat/bin/shutdown.sh || true
