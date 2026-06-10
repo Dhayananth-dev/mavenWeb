@@ -14,14 +14,14 @@ pipeline{
         stage("Copy"){
             steps{
                 sh '''
-                cp target/*.war  tomcat/webapps
+                cp target/*.war  /root/tomcat/webapps
                 '''
             }
         }
         stage("Run"){
             steps{
                 sh '''
-                tomcat/bin/startup.sh
+               /root/tomcat/bin/startup.sh
                 '''
             }
         }
